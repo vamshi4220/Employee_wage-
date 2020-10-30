@@ -78,3 +78,32 @@ case $ch in
     *)echo "wrong choice";;
 esac
 
+#uc6
+
+#Constants
+#declaration & initialization
+EMPLOYEE_RATE_PER_HOUR=100
+FULL_TIME=8
+PART_TIME=4
+MAX_NO_OF_DAYS=20
+MAX_NO_OF_HOURS=120
+
+#Variable
+total_working_hours=0   #using underscope
+totalWorkingDays=0      #camel case
+totalWage=0
+
+
+while [[ $totalWorkingDays -lt $MAX_NO_OF_DAYS && $total_working_hours -lt $MAX_NO_OF_HOURS ]]
+do
+        ((totalWorkingDays++));
+        total_working_hours=$((total_working_hours+FULL_TIME));
+        tempWage=$((FULL_TIME*EMPLOYEE_RATE_PER_HOUR));
+        totalWage=$((tempWage+totalWage));
+
+done
+
+echo "total working hours - " $totalWage
+echo "total days worked - " $totalWorkingDays
+echo "total hours done - " $total_working_hours
+
